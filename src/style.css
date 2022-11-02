@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px auto;
+}
+
+#todo {
+  border: 3px solid #dcdcdc;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #f5f5de;
+  width: 50%;
+}
+
+#todo-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 5px auto;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+#todo-input {
+  height: 25px;
+  border-bottom: 1px solid #dcdcdc;
+  padding: 5px;
+  border: none;
+  outline: none;
+}
+
+::placeholder {
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.todo-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+li {
+  list-style: none;
+}
+
+input {
+  outline: none;
+  border: none;
+  list-style: none;
+  font-size: 1.2rem;
+  padding: 5px;
+  background: transparent;
+}
+
+.select {
+  margin-right: 5px;
+}
+
+#todo-footer {
+  margin: 10px auto;
+}
+
+#clear {
+  text-decoration: none;
+  color: #808080;
+  font-style: italic;
+}
+
+#add-todo {
+  border: none;
+  background: none;
+}
+
+#add-todo img {
+  height: 25px;
+}
+
+#remove-icon {
+  height: 25px;
+  cursor: pointer;
+}
+
+#add-todo:hover,
+#remove-icon:hover {
+  transform: scale(1.1);
+}
