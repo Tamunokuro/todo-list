@@ -78,8 +78,14 @@ input {
   width: 100%;
 }
 
+.todo-item:not(:read-only) {
+  color: #4169e1;
+}
+
 .select {
   margin-right: 5px;
+  height: 25px;
+  width: 25px;
 }
 
 #todo-footer {
@@ -102,6 +108,7 @@ input {
 }
 
 .remove-icon,
+.edit-icon,
 #refresh {
   height: 25px;
   cursor: pointer;

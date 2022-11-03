@@ -1,7 +1,11 @@
 import deleteIcon from '../assets/icons/delete.png';
+import editIcon from '../assets/icons/edit.png';
 
 const iconRemove = new Image();
 iconRemove.src = deleteIcon;
+
+const iconEdit = new Image();
+iconEdit.src = editIcon;
 
 const todoList = [];
 
@@ -46,11 +50,15 @@ export default class ToDo {
       todoInput.setAttribute('id', `${todo.index}`);
       todoInput.setAttribute('readonly', true);
       todoInput.setAttribute('value', `${todo.description}`);
+      const editElement = document.createElement('img');
+      editElement.setAttribute('class', 'edit-icon');
+      editElement.setAttribute('src', `${iconEdit.src}`);
+      editElement.setAttribute('id', `${todo.index}`);
       const removeElement = document.createElement('img');
       removeElement.setAttribute('class', 'remove-icon');
       removeElement.setAttribute('src', `${iconRemove.src}`);
       removeElement.setAttribute('id', `${todo.index}`);
-      todoLi.append(todoCheck, todoInput, removeElement);
+      todoLi.append(todoCheck, todoInput, editElement, removeElement);
       todoContainer.appendChild(todoLi);
     });
   }
@@ -62,9 +70,36 @@ export default class ToDo {
       delBtn.addEventListener('click', () => {
         const todoList = JSON.parse(localStorage.getItem('todoList') || '[]');
         todoList.splice(index, 1);
-        localStorage.setItem('todoList', JSON.stringify(todoList));
         todoContainer.remove();
+        todoList.forEach((todo, i) => {
+          todo.index = i + 1;
+        });
+        localStorage.setItem('todoList', JSON.stringify(todoList));
         window.location.reload();
+      });
+    });
+  }
+
+  static editTodo() {
+    const todoItems = document.querySelectorAll('.todo-item');
+    const editIcons = document.querySelectorAll('.edit-icon');
+    editIcons.forEach((edit) => {
+      edit.addEventListener('click', (e) => {
+        todoItems.forEach((item) => {
+          if (e.target.id === item.id) item.removeAttribute('readonly');
+        });
+      });
+      todoItems.forEach((todo) => {
+        todo.addEventListener('focusout', () => {
+          const todoList = JSON.parse(localStorage.getItem('todoList') || '[]');
+          todoList.forEach((todoli) => {
+            if (todoli.index.toString() === todo.id) {
+              todoli.description = todo.value;
+              localStorage.setItem('todoList', JSON.stringify(todoList));
+              todo.setAttribute('readonly', true);
+            }
+          });
+        });
       });
     });
   }

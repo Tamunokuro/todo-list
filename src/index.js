@@ -17,3 +17,4 @@ refresh.appendChild(refreshImg);
 ToDo.addTodo();
 ToDo.displayTodo();
 ToDo.deleteTodo();
+ToDo.editTodo();
