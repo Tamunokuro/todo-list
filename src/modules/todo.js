@@ -64,12 +64,10 @@ export default class ToDo {
         todoCheck.checked = true;
         todoInput.style.textDecoration = 'line-through';
         todoInput.style.color = '#4169e1';
-      }
-      else {
+      } else {
         todoCheck.checked = false;
         todoInput.style.textDecoration = '';
         todoInput.style.color = '';
-
       }
       todoLi.append(todoCheck, todoInput, editElement, removeElement);
       todoContainer.appendChild(todoLi);
@@ -132,12 +130,14 @@ export default class ToDo {
               if (todoI.id === item.index.toString() && item.completed) { todoI.classList.add('checked'); }
             });
             localStorage.setItem('todoList', JSON.stringify(todoList));
+            window.location.reload();
           } else if ((item.completed === true) && (+e.target.id === item.index)) {
             item.completed = false;
             todoItems.forEach((todoI) => {
               if (todoI.id === item.index.toString() && !item.completed) { todoI.classList.remove('checked'); }
             });
             localStorage.setItem('todoList', JSON.stringify(todoList));
+            window.location.reload();
           }
         });
       });
