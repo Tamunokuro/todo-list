@@ -2,7 +2,7 @@
 
 # Minimal Todo App
 
-> This is a todo app build with html, javascript, css and html to help organize your todo list
+> This is an interactive todo app build with html, javascript, css and html to help organize your todo list
 
 
 ## Built With
