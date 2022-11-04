@@ -14,7 +14,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
+[Todo App](https://tamunokuro.github.io/todo-list/dist/)
 
 
 <!-- ## Getting Started
