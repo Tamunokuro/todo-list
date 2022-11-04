@@ -118,3 +118,14 @@ input {
 #remove-icon:hover {
   transform: scale(1.1);
 }
+
+.checked {
+  text-decoration-line: line-through;
+  color: #4169e1;
+}
+
+@media only screen and (max-width: 600px) {
+  #todo {
+    width: 90%;
+  }
+}

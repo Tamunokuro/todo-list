@@ -14,6 +14,7 @@ export default class ToDo {
     this.description = todo;
     this.index = todoList.length + 1;
     this.completed = false;
+    this.checked = false;
   }
 
   static addTodo() {
@@ -44,6 +45,7 @@ export default class ToDo {
       const todoCheck = document.createElement('input');
       todoCheck.setAttribute('class', 'select');
       todoCheck.setAttribute('type', 'checkbox');
+      todoCheck.setAttribute('id', `${todo.index}`);
       const todoInput = document.createElement('input');
       todoInput.setAttribute('type', 'text');
       todoInput.setAttribute('class', 'todo-item');
@@ -58,6 +60,11 @@ export default class ToDo {
       removeElement.setAttribute('class', 'remove-icon');
       removeElement.setAttribute('src', `${iconRemove.src}`);
       removeElement.setAttribute('id', `${todo.index}`);
+      if (todo.completed) {
+        todoCheck.checked = true;
+        todoInput.style.textDecoration = 'line-through';
+        todoInput.style.color = '#4169e1';
+      }
       todoLi.append(todoCheck, todoInput, editElement, removeElement);
       todoContainer.appendChild(todoLi);
     });
@@ -101,6 +108,55 @@ export default class ToDo {
           });
         });
       });
+    });
+  }
+
+  static isCompleted() {
+    const checked = document.querySelectorAll('.select');
+    const todoItems = document.querySelectorAll('.todo-item');
+
+    checked.forEach((itemCheck) => {
+      itemCheck.addEventListener('change', (e) => {
+        const todoList = JSON.parse(localStorage.getItem('todoList') || '[]');
+
+        todoList.forEach((item) => {
+          if ((item.completed === false) && (+e.target.id === item.index)) {
+            item.completed = true;
+            todoItems.forEach((todoI) => {
+              if (todoI.id === item.index.toString() && item.completed) { todoI.classList.add('checked'); }
+            });
+            localStorage.setItem('todoList', JSON.stringify(todoList));
+          } else if ((item.completed === true) && (+e.target.id === item.index)) {
+            item.completed = false;
+            todoItems.forEach((todoI) => {
+              if (todoI.id === item.index.toString() && !item.completed) { todoI.classList.remove('checked'); }
+            });
+            localStorage.setItem('todoList', JSON.stringify(todoList));
+          }
+        });
+      });
+    });
+  }
+
+  static clearCompleted() {
+    const clear = document.getElementById('clear');
+    clear.addEventListener('click', (e) => {
+      e.preventDefault();
+      let todoList = JSON.parse(localStorage.getItem('todoList') || '[]');
+      todoList = todoList.filter((todo) => todo.completed === false);
+      localStorage.setItem('todoList', JSON.stringify(todoList));
+      window.location.reload();
+    });
+  }
+
+  static reset() {
+    const refresh = document.getElementById('refresh');
+    const todoList = JSON.parse(localStorage.getItem('todoList') || '[]');
+    refresh.addEventListener('click', (e) => {
+      e.preventDefault();
+      todoList.splice(0, todoList.length);
+      localStorage.setItem('todoList', JSON.stringify(todoList));
+      window.location.reload();
     });
   }
 }

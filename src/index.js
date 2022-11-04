@@ -18,3 +18,6 @@ ToDo.addTodo();
 ToDo.displayTodo();
 ToDo.deleteTodo();
 ToDo.editTodo();
+ToDo.isCompleted();
+ToDo.clearCompleted();
+ToDo.reset();
