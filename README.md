@@ -10,6 +10,7 @@
 - HTML, CSS & JavaScript
 - Webpack
 - GIT
+- Gitpages
 
 ## Live Demo (if available)
 
