@@ -9,13 +9,14 @@
 <body>
     <main>
         <section id="todo">
-            <div id="todo-title">
+            <div class="todo-title">
               <h1>Today's Todo's</h1>
+              <span id="refresh"></span>
             </div>
 
             <form id="todo-form">
-              <input id="todo-input" type="text" placeholder="Add to your to do list...">
-              <span type="submit" id="add-todo"></span>
+              <input id="todo-input" type="text" placeholder="Add to your to do list..." required>
+              <button type="submit" id="add-todo"></button>
             </form>
 
             <ul id="todo-list">
