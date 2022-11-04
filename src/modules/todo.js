@@ -114,7 +114,7 @@ export default class ToDo {
       });
     });
   }
-
+  
   static clearCompleted() {
     const clear = document.getElementById('clear');
     clear.addEventListener('click', (e) => {
