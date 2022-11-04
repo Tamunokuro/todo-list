@@ -1,5 +1,6 @@
 import './style.css';
 import addIcon from './assets/icons/add.png';
+import isCompleted from './modules/complete.js';
 
 import refreshIcon from './assets/icons/refresh.png';
 import ToDo from './modules/todo.js';
@@ -18,6 +19,6 @@ ToDo.addTodo();
 ToDo.displayTodo();
 ToDo.deleteTodo();
 ToDo.editTodo();
-ToDo.isCompleted();
+isCompleted();
 ToDo.clearCompleted();
 ToDo.reset();
