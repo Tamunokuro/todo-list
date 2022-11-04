@@ -65,6 +65,12 @@ export default class ToDo {
         todoInput.style.textDecoration = 'line-through';
         todoInput.style.color = '#4169e1';
       }
+      else {
+        todoCheck.checked = false;
+        todoInput.style.textDecoration = '';
+        todoInput.style.color = '';
+
+      }
       todoLi.append(todoCheck, todoInput, editElement, removeElement);
       todoContainer.appendChild(todoLi);
     });
