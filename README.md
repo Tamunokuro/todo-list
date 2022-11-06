@@ -2,7 +2,7 @@
 
 # Minimal Todo App
 
-> This is an interactive todo app build with html, javascript, css and html to help organize your todo list
+> This is an interactive todo app built with html, css and javascript to help organize your daily activities
 
 
 ## Built With
@@ -14,7 +14,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
+[Todo App](https://tamunokuro.github.io/todo-list/dist/)
 
 
 <!-- ## Getting Started
